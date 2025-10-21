@@ -1,5 +1,5 @@
 #
-# Core
+# Akira
 #
 
 set(SOURCES
@@ -18,9 +18,9 @@ Source/Core/Renderer/GLUtils.h
 Source/Core/Renderer/GLUtils.cpp
 )
 
-add_library(Core STATIC)
+add_library(Akira STATIC)
 
-target_sources(Core PRIVATE ${SOURCES})
+target_sources(Akira PRIVATE ${SOURCES})
 
 # Match VS filters to directory structure on disk
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCES})
@@ -29,8 +29,8 @@ add_compile_definitions(
     GLFW_INCLUDE_NONE
 )
 
-target_link_libraries(Core glfw)
-target_link_libraries(Core glad)
-target_link_libraries(Core glm)
+target_link_libraries(Akira glfw)
+target_link_libraries(Akira glad)
+target_link_libraries(Akira glm)
 
-target_include_directories(Core PUBLIC "Source" "vendor/stb")
+target_include_directories(Akira PUBLIC "Source" "vendor/stb")

@@ -1,4 +1,4 @@
-# Splitter game engine
+# Akira game engine
 
 ## Build
 

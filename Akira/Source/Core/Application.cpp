@@ -23,6 +23,8 @@ namespace Core {
 	{
 		s_Application = this;
 
+		std::cout << "Akira App " << std::endl;
+
 		glfwSetErrorCallback(GLFWErrorCallback);
 		glfwInit();
 

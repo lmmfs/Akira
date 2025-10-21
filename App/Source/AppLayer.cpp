@@ -7,10 +7,15 @@
 
 #include <glm/glm.hpp>
 
+#include <filesystem>
+#include <iostream>
+
 AppLayer::AppLayer()
 {
+	std::cout << "Current path is: " << std::filesystem::current_path() << std::endl;
+
 	// Create shaders
-	m_Shader = Renderer::CreateGraphicsShader("../App/Shaders/Vertex.glsl", "../App/Shaders/Fragment.glsl");
+	m_Shader = Renderer::CreateGraphicsShader("Shaders/Vertex.glsl", "Shaders/Fragment.glsl");
 
 	// Create geometry
 	glCreateVertexArrays(1, &m_VertexArray);
