@@ -1,4 +1,5 @@
 #include "AppLayer.h"
+#include "VoidLayer.h"
 
 #include "Core/Application.h"
 
@@ -61,6 +62,9 @@ AppLayer::~AppLayer()
 
 void AppLayer::OnUpdate(float ts)
 {
+	if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
+        TransitionTo<VoidLayer>();
+    }
 }
 
 void AppLayer::OnRender()
