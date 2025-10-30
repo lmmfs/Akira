@@ -63,6 +63,7 @@ AppLayer::~AppLayer()
 void AppLayer::OnUpdate(float ts)
 {
 	if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
+		std::cout << "transition TO void layer" << std::endl;
         TransitionTo<VoidLayer>();
     }
 }

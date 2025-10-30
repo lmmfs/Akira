@@ -5,14 +5,19 @@
 
 #include "Core/Renderer/Renderer.h"
 
-void AppLayer::OnUpdate(float ts)
+VoidLayer::VoidLayer()
+{
+    // Initialization logic for VoidLayer can go here
+}
+
+void VoidLayer::OnUpdate(float ts)
 {
     if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_2) == GLFW_PRESS) {
         TransitionTo<AppLayer>();
     }
 }
 
-void AppLayer::OnRender()
+void VoidLayer::OnRender()
 {
     glClearColor(0.8f, 0.3f, 0.4f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
