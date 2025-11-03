@@ -10,6 +10,7 @@ Source/Core/Application.cpp
 Source/Core/Window.h
 Source/Core/Window.cpp
 Source/Core/Layer.h
+Source/Core/Layer.cpp
 Source/Core/Renderer/Renderer.h
 Source/Core/Renderer/Renderer.cpp
 Source/Core/Renderer/Shader.h

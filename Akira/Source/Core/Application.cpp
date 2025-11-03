@@ -40,6 +40,10 @@ namespace Core {
 
 	Application::~Application()
 	{
+		// Added stack clear on application descrutor that was causing segmetaion fault cause
+		// app was being deleted before the layers
+		m_LayerStack.clear();
+
 		m_Window->Destroy();
 
 		glfwTerminate();
