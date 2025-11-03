@@ -12,6 +12,8 @@ public:
 
 	virtual void OnUpdate(float ts) override;
 	virtual void OnRender() override;
+	virtual int GetId() override;
+
 private:
 	uint32_t m_Shader = 0;
 	uint32_t m_VertexArray = 0;

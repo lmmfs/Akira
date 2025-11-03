@@ -61,7 +61,10 @@ namespace Core {
 		bool m_Running = false;
 		std::vector<std::unique_ptr<Layer>> m_LayerStack;
 		// comand queue to execute commands before layer update and draw
-		std::queue<std::function<void()>> m_CommandQueue;
+		// std::queue<std::function<void()>> m_CommandQueue;
+		// use move only function is c++ 23
+		// std::unique_ptr<Layer>, is move-only and not copyable.
+		std::queue<std::move_only_function<void()>> m_CommandQueue;
 
 		friend class Layer;
 	};
