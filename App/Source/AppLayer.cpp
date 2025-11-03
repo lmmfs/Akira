@@ -54,10 +54,24 @@ AppLayer::AppLayer()
 
 AppLayer::~AppLayer()
 {
-	glDeleteVertexArrays(1, &m_VertexArray);
-	glDeleteBuffers(1, &m_VertexBuffer);
+	std::cout << "m_VertexArray is " << m_VertexArray << std::endl;
+	if (m_VertexArray != 0)
+	{
+		glDeleteVertexArrays(1, &m_VertexArray);
+		m_VertexArray = 0;
+	}
 
-	glDeleteProgram(m_Shader);
+	if (m_VertexBuffer != 0)
+	{
+		glDeleteBuffers(1, &m_VertexBuffer);
+		m_VertexBuffer = 0;
+	}
+
+	if (m_Shader != 0)
+	{
+		glDeleteProgram(m_Shader);
+		m_Shader = 0;
+	}
 }
 
 void AppLayer::OnUpdate(float ts)
