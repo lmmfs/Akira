@@ -18,14 +18,17 @@ to run app call build app from app folder
 ```
 ./../build/App/App
 ```
+or
+
+```
+./run.sh
+```
 
 ## Roadmap
 
-- Fix segmetaion fault when closing app
-
 - Fix run app folder
 
-- Add new layer
+- Improve layer transition calls
 
 - Add logging
 
