@@ -8,7 +8,8 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include <set>
+#include <queue>
+#include <functional>
 
 namespace Core {
 
@@ -58,8 +59,9 @@ namespace Core {
 		ApplicationSpecification m_Specification;
 		std::shared_ptr<Window> m_Window;
 		bool m_Running = false;
-
 		std::vector<std::unique_ptr<Layer>> m_LayerStack;
+		// comand queue to execute commands before layer update and draw
+		std::queue<std::function<void()>> m_CommandQueue;
 
 		friend class Layer;
 	};

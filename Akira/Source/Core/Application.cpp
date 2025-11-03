@@ -68,6 +68,12 @@ namespace Core {
 				break;
 			}
 
+			while (!m_CommandQueue.empty())
+			{
+				m_CommandQueue.front()();
+				m_CommandQueue.pop();
+			}
+
 			float currentTime = GetTime();
 			float timestep = glm::clamp(currentTime - lastTime, 0.001f, 0.1f);
 			lastTime = currentTime;
