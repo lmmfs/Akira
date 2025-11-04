@@ -54,7 +54,6 @@ AppLayer::AppLayer()
 
 AppLayer::~AppLayer()
 {
-	std::cout << "m_VertexArray is " << m_VertexArray << std::endl;
 	if (m_VertexArray != 0)
 	{
 		glDeleteVertexArrays(1, &m_VertexArray);
