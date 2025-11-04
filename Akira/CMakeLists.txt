@@ -11,6 +11,8 @@ Source/Core/Window.h
 Source/Core/Window.cpp
 Source/Core/Layer.h
 Source/Core/Layer.cpp
+Source/Core/Logger.h
+Source/Core/Logger.cpp
 Source/Core/Renderer/Renderer.h
 Source/Core/Renderer/Renderer.cpp
 Source/Core/Renderer/Shader.h
@@ -33,5 +35,6 @@ add_compile_definitions(
 target_link_libraries(Akira glfw)
 target_link_libraries(Akira glad)
 target_link_libraries(Akira glm)
+target_link_libraries(Akira spdlog)
 
 target_include_directories(Akira PUBLIC "Source" "vendor/stb")

@@ -55,3 +55,19 @@ if (NOT glm_FOUND)
     endif()
 endif()
 set_target_properties(glm PROPERTIES FOLDER "Dependencies")
+
+# spdlog
+find_package(spdlog 1.16.0 QUIET)
+if (NOT spdlog_FOUND)
+    FetchContent_Declare(
+            spdlog
+            DOWNLOAD_EXTRACT_TIMESTAMP OFF
+            URL https://github.com/gabime/spdlog/archive/refs/tags/v1.16.0.zip
+    )
+    FetchContent_GetProperties(spdlog)
+    if (NOT spdlog_POPULATED)
+        set(FETCHCONTENT_QUIET NO)
+        FetchContent_Populate(spdlog)
+        add_subdirectory(${spdlog_SOURCE_DIR} ${spdlog_BINARY_DIR})
+    endif()
+endif()
