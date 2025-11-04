@@ -1,8 +1,8 @@
 #include "Window.h"
+#include "Logger.h"
 
 #include <glad/gl.h>
 
-#include <iostream>
 #include <assert.h>
 
 namespace Core {
@@ -29,7 +29,7 @@ namespace Core {
 
 		if (!m_Handle)
 		{
-			std::cerr << "Failed to create GLFW window!\n";
+			CORE_ERROR("Failed to create GLFW window");
 			assert(false);
 		}
 
