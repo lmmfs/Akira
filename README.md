@@ -28,8 +28,6 @@ or
 
 - Fix run app folder
 
-- Add logging
-
 - Event System
 
 - ImGui

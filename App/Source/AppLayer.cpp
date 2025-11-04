@@ -2,18 +2,18 @@
 #include "VoidLayer.h"
 
 #include "Core/Application.h"
+#include "Core/Logger.h"
 
 #include "Core/Renderer/Renderer.h"
 #include "Core/Renderer/Shader.h"
 
 #include <glm/glm.hpp>
 
-#include <filesystem>
-#include <iostream>
+
 
 AppLayer::AppLayer()
 {
-	std::cout << "Current path is: " << std::filesystem::current_path() << std::endl;
+	APP_INFO("Starting app layer");
 
 	// Create shaders
 	m_Shader = Renderer::CreateGraphicsShader("Shaders/Vertex.glsl", "Shaders/Fragment.glsl");
@@ -76,7 +76,7 @@ AppLayer::~AppLayer()
 void AppLayer::OnUpdate(float ts)
 {
 	if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
-		std::cout << "transition TO void layer" << std::endl;
+		APP_INFO("Transition to void layer");
         TransitionTo<VoidLayer>();
     }
 }

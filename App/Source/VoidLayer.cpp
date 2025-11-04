@@ -2,6 +2,7 @@
 #include "AppLayer.h"
 
 #include "Core/Application.h"
+#include "Core/Logger.h"
 
 #include "Core/Renderer/Renderer.h"
 
@@ -13,6 +14,7 @@ VoidLayer::VoidLayer()
 void VoidLayer::OnUpdate(float ts)
 {
     if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_2) == GLFW_PRESS) {
+        APP_INFO("Transition to app layer");
         TransitionTo<AppLayer>();
     }
 }

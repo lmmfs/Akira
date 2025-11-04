@@ -1,5 +1,6 @@
 #include "Application.h"
 
+#include "Logger.h"
 #include "Renderer/GLUtils.h"
 
 #include <GLFW/glfw3.h>
@@ -7,7 +8,6 @@
 #include <glm/glm.hpp>
 
 #include <assert.h>
-#include <iostream>
 
 namespace Core {
 
@@ -15,7 +15,7 @@ namespace Core {
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		std::cerr << "[GLFW Error]: " << description << std::endl;
+		CORE_ERROR("[GLFW Error]: {0}",  description);
 	}
 
 	Application::Application(const ApplicationSpecification& specification)
@@ -23,7 +23,8 @@ namespace Core {
 	{
 		s_Application = this;
 
-		std::cout << "Akira App " << std::endl;
+		// start logger
+		Logger::init();
 
 		glfwSetErrorCallback(GLFWErrorCallback);
 		glfwInit();
@@ -36,6 +37,8 @@ namespace Core {
 		m_Window->Create();
 
 		Renderer::Utils::InitOpenGLDebugMessageCallback();
+
+		CORE_INFO("Akira App");
 	}
 
 	Application::~Application()
