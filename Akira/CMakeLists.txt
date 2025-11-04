@@ -5,20 +5,20 @@
 set(SOURCES
 vendor/stb/stb_image.h
 vendor/stb/stb_image.cpp
-Source/Core/Application.h
-Source/Core/Application.cpp
-Source/Core/Window.h
-Source/Core/Window.cpp
-Source/Core/Layer.h
-Source/Core/Layer.cpp
-Source/Core/Logger.h
-Source/Core/Logger.cpp
-Source/Core/Renderer/Renderer.h
-Source/Core/Renderer/Renderer.cpp
-Source/Core/Renderer/Shader.h
-Source/Core/Renderer/Shader.cpp
-Source/Core/Renderer/GLUtils.h
-Source/Core/Renderer/GLUtils.cpp
+Source/Akira/Application.h
+Source/Akira/Application.cpp
+Source/Akira/Window.h
+Source/Akira/Window.cpp
+Source/Akira/Layer.h
+Source/Akira/Layer.cpp
+Source/Akira/Logger.h
+Source/Akira/Logger.cpp
+Source/Akira/Renderer/Renderer.h
+Source/Akira/Renderer/Renderer.cpp
+Source/Akira/Renderer/Shader.h
+Source/Akira/Renderer/Shader.cpp
+Source/Akira/Renderer/GLUtils.h
+Source/Akira/Renderer/GLUtils.cpp
 )
 
 add_library(Akira STATIC)

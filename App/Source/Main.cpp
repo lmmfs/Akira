@@ -1,16 +1,16 @@
-#include "Core/Application.h"
+#include "Akira/Application.h"
 
 #include "AppLayer.h"
 #include "OverLayer.h"
 
 int main()
 {
-	Core::ApplicationSpecification appSpec;
+	Akira::ApplicationSpecification appSpec;
 	appSpec.Name = "Architecture";
 	appSpec.WindowSpec.Width = 1920;
 	appSpec.WindowSpec.Height = 1080;
 
-	Core::Application application(appSpec);
+	Akira::Application application(appSpec);
 	application.PushLayer<AppLayer>();
 
 	application.Run();

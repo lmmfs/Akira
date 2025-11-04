@@ -1,10 +1,10 @@
 #include "VoidLayer.h"
 #include "AppLayer.h"
 
-#include "Core/Application.h"
-#include "Core/Logger.h"
+#include "Akira/Application.h"
+#include "Akira/Logger.h"
 
-#include "Core/Renderer/Renderer.h"
+#include "Akira/Renderer/Renderer.h"
 
 VoidLayer::VoidLayer()
 {
@@ -13,7 +13,7 @@ VoidLayer::VoidLayer()
 
 void VoidLayer::OnUpdate(float ts)
 {
-    if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_2) == GLFW_PRESS) {
+    if (glfwGetKey(Akira::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_2) == GLFW_PRESS) {
         APP_INFO("Transition to app layer");
         TransitionTo<AppLayer>();
     }

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core/Layer.h"
+#include "Akira/Layer.h"
 
-class VoidLayer : public Core::Layer
+class VoidLayer : public Akira::Layer
 {
 public:
 	VoidLayer();

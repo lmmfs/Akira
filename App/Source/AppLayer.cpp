@@ -1,11 +1,11 @@
 #include "AppLayer.h"
 #include "VoidLayer.h"
 
-#include "Core/Application.h"
-#include "Core/Logger.h"
+#include "Akira/Application.h"
+#include "Akira/Logger.h"
 
-#include "Core/Renderer/Renderer.h"
-#include "Core/Renderer/Shader.h"
+#include "Akira/Renderer/Renderer.h"
+#include "Akira/Renderer/Shader.h"
 
 #include <glm/glm.hpp>
 
@@ -75,7 +75,7 @@ AppLayer::~AppLayer()
 
 void AppLayer::OnUpdate(float ts)
 {
-	if (glfwGetKey(Core::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
+	if (glfwGetKey(Akira::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
 		APP_INFO("Transition to void layer");
         TransitionTo<VoidLayer>();
     }
@@ -86,9 +86,9 @@ void AppLayer::OnRender()
 	glUseProgram(m_Shader);
 
 	// Uniforms
-	glUniform1f(0, Core::Application::GetTime());
+	glUniform1f(0, Akira::Application::GetTime());
 
-	glm::vec2 framebufferSize = Core::Application::Get().GetFramebufferSize();
+	glm::vec2 framebufferSize = Akira::Application::Get().GetFramebufferSize();
 	glUniform2f(1, framebufferSize.x, framebufferSize.y);
 
 	glViewport(0, 0, static_cast<GLsizei>(framebufferSize.x), static_cast<GLsizei>(framebufferSize.y));

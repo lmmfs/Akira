@@ -9,7 +9,7 @@
 
 #include <assert.h>
 
-namespace Core {
+namespace Akira {
 
 	static Application* s_Application = nullptr;
 

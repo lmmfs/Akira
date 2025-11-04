@@ -6,7 +6,7 @@
 #include <utility>
 
 
-namespace Core {
+namespace Akira {
 
 	class Layer
 	{

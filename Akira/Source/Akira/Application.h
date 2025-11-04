@@ -11,7 +11,7 @@
 #include <queue>
 #include <functional>
 
-namespace Core {
+namespace Akira {
 
 	struct ApplicationSpecification
 	{

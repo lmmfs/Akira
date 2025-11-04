@@ -2,9 +2,9 @@
 
 #include <stdint.h>
 
-#include "Core/Layer.h"
+#include "Akira/Layer.h"
 
-class AppLayer : public Core::Layer
+class AppLayer : public Akira::Layer
 {
 public:
 	AppLayer();

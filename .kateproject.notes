@@ -1,0 +1,4 @@
+add a defer command queue
+the idea is on QueueTransistion will polpulate an application queue
+on main loop check if queue has commands on it,
+use function pointers 

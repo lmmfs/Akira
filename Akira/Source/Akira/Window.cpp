@@ -5,7 +5,7 @@
 
 #include <assert.h>
 
-namespace Core {
+namespace Akira {
 
 	Window::Window(const WindowSpecification& specification)
 		: m_Specification(specification)

@@ -1,7 +1,7 @@
 #include "Logger.h"
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-namespace Core {
+namespace Akira {
 
     std::shared_ptr<spdlog::logger> Logger::m_CoreLogger;
     std::shared_ptr<spdlog::logger> Logger::m_AppLogger;

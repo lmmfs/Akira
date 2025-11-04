@@ -1,9 +1,8 @@
 #include "Layer.h"
 
 #include "Application.h"
-#include <iostream>
 
-namespace Core {
+namespace Akira {
 
     void Layer::QueueTransition(std::unique_ptr<Layer> toLayer)
     {
