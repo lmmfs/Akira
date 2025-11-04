@@ -18,8 +18,6 @@ namespace Core {
 		virtual void OnUpdate(float ts) {}
 		virtual void OnRender() {}
 
-		virtual int GetId() { return 0; }
-
 		template<std::derived_from<Layer> T, typename ... Args>
 		void TransitionTo(Args&& ... args)
 		{

@@ -98,8 +98,3 @@ void AppLayer::OnRender()
 	glBindVertexArray(m_VertexArray);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
-
-int AppLayer::GetId()
-{
-	return 1;
-}

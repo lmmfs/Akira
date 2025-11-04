@@ -28,8 +28,6 @@ or
 
 - Fix run app folder
 
-- Improve layer transition calls
-
 - Add logging
 
 - Event System
