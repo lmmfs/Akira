@@ -6,7 +6,11 @@
 
 #include <string>
 
+#include "Events/Event.h"
+
 namespace Akira {
+
+	using EventCallbackFn = std::function<void(Event&)>;
 
 	struct WindowSpecification
 	{
@@ -15,6 +19,8 @@ namespace Akira {
 		uint32_t Height = 720;
 		bool IsResizeable = true;
 		bool VSync = true;
+
+		EventCallbackFn eventCallback;
 	};
 
 	class Window
@@ -33,6 +39,8 @@ namespace Akira {
 		bool ShouldClose() const;
 
 		GLFWwindow* GetHandle() const { return m_Handle; }
+
+		void setEventCallback(const EventCallbackFn& callback) { m_Specification.eventCallback = callback; }
 	private:
 		WindowSpecification m_Specification;
 

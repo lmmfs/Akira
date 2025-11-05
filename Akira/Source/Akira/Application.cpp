@@ -11,6 +11,8 @@
 
 namespace Akira {
 
+	#define  BIND_EVENT_FUNC(x) std::bind(&x, this, std::placeholders::_1)
+
 	static Application* s_Application = nullptr;
 
 	static void GLFWErrorCallback(int error, const char* description)
@@ -35,6 +37,7 @@ namespace Akira {
 
 		m_Window = std::make_shared<Window>(m_Specification.WindowSpec);
 		m_Window->Create();
+		m_Window->setEventCallback(BIND_EVENT_FUNC(Application::onEvent));
 
 		Renderer::Utils::InitOpenGLDebugMessageCallback();
 
@@ -91,6 +94,11 @@ namespace Akira {
 
 			m_Window->Update();
 		}
+	}
+
+	void Application::onEvent(Event& event)
+	{
+		CORE_INFO("{0}", event);
 	}
 
 	void Application::Stop()

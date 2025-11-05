@@ -1,5 +1,8 @@
 #include "Window.h"
 #include "Logger.h"
+#include "Events/MouseEvent.h"
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyEvent.h"
 
 #include <glad/gl.h>
 
@@ -33,30 +36,33 @@ namespace Akira {
 			assert(false);
 		}
 
+		//glfwSetWindowUserPointer(m_Handle, this);
+
 		glfwMakeContextCurrent(m_Handle);
+		glfwSetWindowUserPointer(m_Handle, &m_Specification);
 		gladLoadGL(glfwGetProcAddress);
 
 		glfwSwapInterval(m_Specification.VSync ? 1 : 0);
 
-		/*
+
 		         // Set GLFW callbacks
-		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			data.width = width;
-			data.height = height;
+		glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* window, int width, int height) {
+			WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
 
 			WindowResizeEvent event(width, height);
 			data.eventCallback(event);
 		});
 
-        glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+        glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window) {
+			WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
 			data.eventCallback(event);
 		});
 
-        glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+        glfwSetKeyCallback(m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+            WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
 
             switch(action) {
                 case GLFW_PRESS: {
@@ -77,8 +83,9 @@ namespace Akira {
             }
         });
 
-        glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
-            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+        glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods) {
+            WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
 
             switch (action) {
                 case GLFW_PRESS: {
@@ -94,22 +101,24 @@ namespace Akira {
             }
         });
 
-        glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xoffset, double yoffset) {
-            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+        glfwSetScrollCallback(m_Handle, [](GLFWwindow* window, double xoffset, double yoffset) {
+            WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
 
             MouseScrolledEvent event((float)xoffset, (float)yoffset);
             data.eventCallback(event);
         });
 
 
-        glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xpos, double ypos) {
-            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+        glfwSetCursorPosCallback(m_Handle, [](GLFWwindow* window, double xpos, double ypos) {
+
+			WindowSpecification& data = *(WindowSpecification*)glfwGetWindowUserPointer(window);
 
             MousedMovedEvent event((float)xpos, (float)ypos);
             data.eventCallback(event);
         });
 
-		 */
+
 	}
 
 	void Window::Destroy()
