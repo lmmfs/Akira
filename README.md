@@ -28,6 +28,10 @@ or
 
 - Fix run app folder
 
+- Precompiled headers
+
+- Organize imports
+
 - ImGui
 
 - Improve Event System on app layers
