@@ -10,4 +10,5 @@ public:
 
 	virtual void OnUpdate(float ts) override;
 	virtual void OnRender() override;
+	virtual void OnEvent(Akira::Event& event) override;
 };

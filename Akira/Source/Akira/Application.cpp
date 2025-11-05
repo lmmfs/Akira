@@ -37,7 +37,7 @@ namespace Akira {
 
 		m_Window = std::make_shared<Window>(m_Specification.WindowSpec);
 		m_Window->Create();
-		m_Window->setEventCallback(BIND_EVENT_FUNC(Application::onEvent));
+		m_Window->setEventCallback(BIND_EVENT_FUNC(Application::OnEvent));
 
 		Renderer::Utils::InitOpenGLDebugMessageCallback();
 
@@ -96,10 +96,25 @@ namespace Akira {
 		}
 	}
 
-	void Application::onEvent(Event& event)
-	{
-		CORE_INFO("{0}", event);
-	}
+	void Application::OnEvent(Event& event) {
+        EventDispatcher dispatcher(event);
+        dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FUNC(Application::OnWindowClose));
+
+        //CORE_INFO("Event: {0}", event);
+
+        //backward layer event handleling
+        for (auto layer = m_LayerStack.end(); layer != m_LayerStack.begin(); ) {
+            (*--layer)->OnEvent(event);
+            if (event.m_Handled) {
+                break;
+            }
+        }
+    }
+
+    bool Application::OnWindowClose(WindowCloseEvent& e) {
+        Application::Stop();
+        return true;
+    }
 
 	void Application::Stop()
 	{

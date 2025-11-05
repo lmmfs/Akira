@@ -3,6 +3,7 @@
 #include "Layer.h"
 #include "Window.h"
 #include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
 
 #include <glm/glm.hpp>
 
@@ -28,7 +29,7 @@ namespace Akira {
 
 		void Run();
 		void Stop();
-		void onEvent(Event& event);
+		void OnEvent(Event& event);
 
 		template<typename TLayer>
 		requires(std::is_base_of_v<Layer, TLayer>)
@@ -61,6 +62,7 @@ namespace Akira {
 		ApplicationSpecification m_Specification;
 		std::shared_ptr<Window> m_Window;
 		bool m_Running = false;
+		bool OnWindowClose(WindowCloseEvent& e);
 		std::vector<std::unique_ptr<Layer>> m_LayerStack;
 		// comand queue to execute commands before layer update and draw
 		// std::queue<std::function<void()>> m_CommandQueue;
