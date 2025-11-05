@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 #include "Akira/Layer.h"
+#include "Akira/Events/Event.h"
 
 class AppLayer : public Akira::Layer
 {
@@ -12,6 +13,7 @@ public:
 
 	virtual void OnUpdate(float ts) override;
 	virtual void OnRender() override;
+	virtual void OnEvent(Akira::Event& event) override;
 
 private:
 	uint32_t m_Shader = 0;

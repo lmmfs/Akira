@@ -28,9 +28,9 @@ or
 
 - Fix run app folder
 
-- Event System
-
 - ImGui
+
+- Improve Event System on app layers
 
 - ECS like design
 

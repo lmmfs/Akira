@@ -1,4 +1,5 @@
 #include "AppLayer.h"
+#include "Akira/Events/MouseEvent.h"
 #include "VoidLayer.h"
 
 #include "Akira/Application.h"
@@ -6,6 +7,8 @@
 
 #include "Akira/Renderer/Renderer.h"
 #include "Akira/Renderer/Shader.h"
+#include "Akira/Events/Event.h"
+#include "Akira/Events/KeyEvent.h"
 
 #include <glm/glm.hpp>
 
@@ -75,10 +78,7 @@ AppLayer::~AppLayer()
 
 void AppLayer::OnUpdate(float ts)
 {
-	if (glfwGetKey(Akira::Application::Get().GetWindow()->GetHandle(), GLFW_KEY_1) == GLFW_PRESS) {
-		APP_INFO("Transition to void layer");
-        TransitionTo<VoidLayer>();
-    }
+
 }
 
 void AppLayer::OnRender()
@@ -97,4 +97,26 @@ void AppLayer::OnRender()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glBindVertexArray(m_VertexArray);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+void AppLayer::OnEvent(Akira::Event& event)
+{
+	Akira::EventDispatcher dispatcher(event);
+	dispatcher.dispatch<Akira::KeyPressedEvent>([this](Akira::KeyPressedEvent& event)
+    {
+		switch (event.getKeyCode()) {
+			case GLFW_KEY_1 :
+				APP_INFO("Transition to void layer");
+				TransitionTo<VoidLayer>();
+				break;
+			default:
+				APP_INFO("Key pressed: {0}", event.getKeyCode());
+				break;
+		}
+        return true;
+    });
+	dispatcher.dispatch<Akira::MousedMovedEvent>([this](Akira::MousedMovedEvent& event)
+	{
+		return true;
+	});
 }

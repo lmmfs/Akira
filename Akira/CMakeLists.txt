@@ -13,6 +13,10 @@ Source/Akira/Layer.h
 Source/Akira/Layer.cpp
 Source/Akira/Logger.h
 Source/Akira/Logger.cpp
+Source/Akira/Events/Event.h
+Source/Akira/Events/ApplicationEvent.h
+Source/Akira/Events/KeyEvent.h
+Source/Akira/Events/MouseEvent.h
 Source/Akira/Renderer/Renderer.h
 Source/Akira/Renderer/Renderer.cpp
 Source/Akira/Renderer/Shader.h
