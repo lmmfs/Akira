@@ -5,6 +5,7 @@
 set(SOURCES
 vendor/stb/stb_image.h
 vendor/stb/stb_image.cpp
+Source/Akpch.h
 Source/Akira/Application.h
 Source/Akira/Application.cpp
 Source/Akira/Window.h
@@ -42,3 +43,7 @@ target_link_libraries(Akira glm)
 target_link_libraries(Akira spdlog)
 
 target_include_directories(Akira PUBLIC "Source" "vendor/stb")
+
+target_precompile_headers(Akira PRIVATE
+  "${CMAKE_CURRENT_SOURCE_DIR}/Source/Akpch.h"
+)

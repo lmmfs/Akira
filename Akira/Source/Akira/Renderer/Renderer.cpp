@@ -2,8 +2,7 @@
 
 #include "GLUtils.h"
 
-#include <iostream>
-//#include <print>
+#include "Akpch.h"
 
 #include "stb_image.h"
 

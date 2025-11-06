@@ -1,6 +1,5 @@
 #include "GLUtils.h"
-
-#include <iostream>
+#include "../Logger.h"
 
 namespace Renderer::Utils {
 
@@ -62,8 +61,7 @@ namespace Renderer::Utils {
 		const char* typeStr = Utils::GLDebugTypeToString(type);
 		const char* severityStr = Utils::GLDebugSeverityToString(severity);
 
-		//std::println("[OpenGL] [{} - {} ({})]: [{}] {}", severityStr, typeStr, id, sourceStr, message);
-		std::cout << "[OpenGL]" << " [" << severityStr << " - " << typeStr << " (" << id << ")]: [" << sourceStr << "] " << message << std::endl;
+		CORE_WARN("[OpenGL] [{0} - {1} ({2})]: [{3}] {4}" , severityStr, typeStr, id, sourceStr, message);
 	}
 
 	void InitOpenGLDebugMessageCallback()

@@ -3,11 +3,7 @@
 #include "Logger.h"
 #include "Renderer/GLUtils.h"
 
-#include <GLFW/glfw3.h>
-
-#include <glm/glm.hpp>
-
-#include <assert.h>
+#include "Akpch.h"
 
 namespace Akira {
 

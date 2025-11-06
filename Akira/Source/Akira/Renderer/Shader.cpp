@@ -1,9 +1,6 @@
 #include "Shader.h"
 
-#include <iostream>
-#include <fstream>
-
-#include <glad/gl.h>
+#include "Akpch.h"
 
 namespace Renderer {
 

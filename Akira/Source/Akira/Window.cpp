@@ -4,9 +4,7 @@
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
 
-#include <glad/gl.h>
-
-#include <assert.h>
+#include "Akpch.h"
 
 namespace Akira {
 
