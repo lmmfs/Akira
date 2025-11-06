@@ -4,6 +4,8 @@
 
 set(SOURCES
     Source/Main.cpp
+    Source/OverLayer.h
+    Source/OverLayer.cpp
     Source/AppLayer.h
     Source/AppLayer.cpp
     Source/VoidLayer.h
@@ -34,4 +36,9 @@ set_target_properties(App PROPERTIES
 add_custom_target(copy_shaders
         COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/App/Shaders" "${CMAKE_CURRENT_BINARY_DIR}/Shaders"
     )
-    add_dependencies(App copy_shaders)
+add_dependencies(App copy_shaders)
+
+add_custom_target(copy_textures
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/App/Textures" "${CMAKE_CURRENT_BINARY_DIR}/Textures"
+    )
+add_dependencies(App copy_textures)

@@ -1,7 +1,7 @@
 #include "Akira/Application.h"
 
 #include "AppLayer.h"
-//#include "OverLayer.h"
+#include "OverLayer.h"
 
 int main()
 {
@@ -12,7 +12,7 @@ int main()
 
 	Akira::Application application(appSpec);
 	application.PushLayer<AppLayer>();
-	//application.PushLayer<OverlayLayer>();
+	application.PushLayer<OverlayLayer>();
 
 	application.Run();
 }

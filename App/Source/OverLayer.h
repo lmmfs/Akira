@@ -26,9 +26,3 @@ private:
     bool m_IsHovered = false;
     bool m_Pressed = true;
 };
-
-/*
- *
-    Source/OverLayer.h
-    Source/OverLayer.cpp
- */
