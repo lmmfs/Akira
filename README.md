@@ -16,7 +16,7 @@ from that directory. This will generate relevant project files.
 to run app call build app from app folder
 
 ```
-./../build/App/App
+./App
 ```
 or
 
@@ -26,9 +26,7 @@ or
 
 ## Roadmap
 
-- Fix run app folder
-
-- Precompiled headers
+- Overlayer
 
 - Organize imports
 
